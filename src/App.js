@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import logo from './logo.svg';
 
 import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component';
+import HomePageContainer from './pages/homepage/homepage.container';
 import WordPageContainer from './pages/word/word.container';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import SignUp from './components/sign-up/sign-up.component';
@@ -29,7 +29,8 @@ const App = function({checkUserSession,currentUser}) {
     <div className="App">
       <Header/>
       <Switch>
-        <Route exact path='/' component={HomePage}/>
+        <Route exact path='/' component={HomePageContainer}/>
+        <Route path='/wordbook' component={HomePageContainer}/>
         <Route path='/word' component={WordPageContainer}/>
         
         <Route exact path='/signin' render={() => currentUser?(<Redirect to='/'/>):(<SignInAndSignUp/>)}/>
