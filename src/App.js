@@ -30,7 +30,7 @@ const App = function({checkUserSession,currentUser}) {
       <Header/>
       <Switch>
         <Route exact path='/' component={HomePageContainer}/>
-        <Route path='/wordbook' component={HomePageContainer}/>
+        <Route exact path='/wordbook' component={HomePageContainer}/>
         <Route path='/word' component={WordPageContainer}/>
         
         <Route exact path='/signin' render={() => currentUser?(<Redirect to='/'/>):(<SignInAndSignUp/>)}/>
