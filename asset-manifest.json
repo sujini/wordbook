@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wordbook/static/css/main.6fa34873.chunk.css",
-    "main.js": "/wordbook/static/js/main.777bb870.chunk.js",
-    "main.js.map": "/wordbook/static/js/main.777bb870.chunk.js.map",
+    "main.js": "/wordbook/static/js/main.1ca1a840.chunk.js",
+    "main.js.map": "/wordbook/static/js/main.1ca1a840.chunk.js.map",
     "runtime-main.js": "/wordbook/static/js/runtime-main.b00895fe.js",
     "runtime-main.js.map": "/wordbook/static/js/runtime-main.b00895fe.js.map",
     "static/js/2.c5ca513f.chunk.js": "/wordbook/static/js/2.c5ca513f.chunk.js",
     "static/js/2.c5ca513f.chunk.js.map": "/wordbook/static/js/2.c5ca513f.chunk.js.map",
     "index.html": "/wordbook/index.html",
-    "precache-manifest.bf50737eeff98c2ed5594952690be45b.js": "/wordbook/precache-manifest.bf50737eeff98c2ed5594952690be45b.js",
+    "precache-manifest.d702a69c8459a4673df986e4237c88fa.js": "/wordbook/precache-manifest.d702a69c8459a4673df986e4237c88fa.js",
     "service-worker.js": "/wordbook/service-worker.js",
     "static/css/main.6fa34873.chunk.css.map": "/wordbook/static/css/main.6fa34873.chunk.css.map",
     "static/js/2.c5ca513f.chunk.js.LICENSE.txt": "/wordbook/static/js/2.c5ca513f.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.b00895fe.js",
     "static/js/2.c5ca513f.chunk.js",
     "static/css/main.6fa34873.chunk.css",
-    "static/js/main.777bb870.chunk.js"
+    "static/js/main.1ca1a840.chunk.js"
   ]
 }
