@@ -31,6 +31,20 @@ export const createWordFailure = error => ({
   payload:error
 });
 
+export const deleteWordStart = id => ({
+  type: wordActionTypes.DELETE_WORD_START,
+  payload:id
+});
+
+export const deleteWordSuccess = collections =>({
+  type: wordActionTypes.DELETE_WORD_SUCCESS,
+  payload:collections
+});
+export const deleteWordFailure = error => ({
+  type: wordActionTypes.DELETE_WORD_FAILURE,
+  payload:error
+});
+
 export const fetchWordStart = () => ({
   type: wordActionTypes.FETCH_WORD_START
 });

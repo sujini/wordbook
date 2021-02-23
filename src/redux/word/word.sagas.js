@@ -1,6 +1,6 @@
 import {takeLatest,put,all,call} from 'redux-saga/effects';
-import {firestore,createWordDocument,getCurrentUser,convertWordsnapshotToMap} from '../../firebase/firebase.utils';
-import {createWordSuccess,createWordFailure,fetchWordsSuccess,fetchWordsFailure} from './word.actions';
+import {firestore,createWordDocument,deleteWordDocument,getCurrentUser,convertWordsnapshotToMap} from '../../firebase/firebase.utils';
+import {createWordSuccess,createWordFailure,deleteWordSuccess,deleteWordFailure,fetchWordsSuccess,fetchWordsFailure} from './word.actions';
 import wordActionTypes from './word.types';
 
 export function* ceateWord({payload:{content,meaning}}){
@@ -16,7 +16,19 @@ export function* ceateWord({payload:{content,meaning}}){
         yield put(createWordFailure(error));
     }
 }
-
+export function* deleteWord({payload:id}){
+    try{
+        
+        const userAuth = yield getCurrentUser();
+        if(!userAuth)return;
+        const wordRef = yield call(deleteWordDocument,userAuth,id);
+        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).get();
+        const wordsMap = yield call(convertWordsnapshotToMap,snapshot);
+        yield put(deleteWordSuccess(wordsMap));
+    }catch(error){
+        yield put(deleteWordFailure(error));
+    }
+}
 
 
 export function* fetchWordsAsyncFromUser(){
@@ -54,6 +66,11 @@ export function* fetchWordsStart(){
 export function* onCreateWordStart(){
     yield takeLatest(wordActionTypes.CREATE_WORD_START,ceateWord);
 }
+
+export function* onDeleteWordStart(){
+    yield takeLatest(wordActionTypes.DELETE_WORD_START,deleteWord);
+}
+
 export function* wordSagas(){
-    yield all([call(onCreateWordStart),call(fetchWordsStart),call(fetchWordsStartFromUser)]);
+    yield all([call(onCreateWordStart),call(onDeleteWordStart),call(fetchWordsStart),call(fetchWordsStartFromUser)]);
 }

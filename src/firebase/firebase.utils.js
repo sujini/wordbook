@@ -60,6 +60,24 @@ const config= {
     return wordRef;
 
   }
+
+  export const deleteWordDocument = async (userAuth, id) => {
+    if(!userAuth) return;
+
+    const wordRef = firestore.collection('words');
+    try{
+        await wordRef.doc(id).delete();
+        console.log("Document successfully deleted!");
+        
+
+    }catch(error){
+        console.log('error removing word',error.message)
+
+    }
+  
+    return wordRef;
+
+  }
   export const convertWordsnapshotToMap = words => {
     const transformedWord = words.docs.map( doc =>{
         const {content,meaning,uid} = doc.data();

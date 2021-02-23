@@ -27,6 +27,19 @@ const wordReducer = (state=INITIAL_STATE,action)=>{
                 isFetching:false,
                 error:action.payload
             }
+        case wordActionTypes.DELETE_WORD_SUCCESS:
+            return{
+                ...state,
+                isFetching:false,
+                collections:action.payload,                
+                error:null
+            }
+        case wordActionTypes.DELETE_WORD_FAILURE:
+            return{
+                ...state,
+                isFetching:false,
+                error:action.payload
+            }
         case wordActionTypes.FETCH_WORD_START:
             return{
                 ...state,
