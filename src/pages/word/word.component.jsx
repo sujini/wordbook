@@ -10,7 +10,7 @@ import './word.styles.scss'
 
 const WordPage =({history,currentUser})=> {
   useEffect(()=>{
-    if (!currentUser) history.push('/signin');
+    if (!currentUser) history.push('/');
   },currentUser);
  
     

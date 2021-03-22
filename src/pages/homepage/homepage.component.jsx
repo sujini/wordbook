@@ -9,27 +9,26 @@ import {selectCollections,selectIsCollectionFetching,selectIsCollectionsLoaded} 
 import {selectCurrentUser} from '../../redux/user/user.selectors';
 import {fetchWordStart} from '../../redux/word/word.actions';
 import WordItem from '../../components/word-item/word-item.component';
+import {ShowSignUp} from '../../uifunctions/popup.functions';
 
 const setNum = (_num)=>{
     return _num<10?'0'+_num:_num;
 }
-const HomePage = ({collections,fetchWordStart,currentUser})=>{
-    useEffect (()=>{
-        fetchWordStart();
-    },[fetchWordStart]);
-   
+const HomePage = ({history,collections,fetchWordStart,currentUser})=>{
+    useEffect(()=>{
+        if (currentUser) history.push('/word');
+    },currentUser);
+    
+    const handleClick = () => {
+        ShowSignUp();
+        
+    }
     
     return(
         <div>
-            <ul className='card-list'>
-                {
-                collections && collections.map((collection,index)=>(
-                    <WordItem key={collection.id} index={setNum(index+1)} item={collection} blur={currentUser?false:true}/>
-                    
-                
-                ))
-            }
-            </ul>
+            <button onClick={handleClick}>
+                단어장 만들기
+            </button>
         </div>
     )
 

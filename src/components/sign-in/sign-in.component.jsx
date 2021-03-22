@@ -5,6 +5,7 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import {signInwithGoogle, auth} from '../../firebase/firebase.utils';
 import {googleSignInStart,emailSignInStart} from  '../../redux/user/user.actions';
+import {HideSignIn} from '../../uifunctions/popup.functions'
 const SignIn =({emailSignInStart,googleSignInStart})=>{
     const [userCrendentials,setCrendentials] = useState({email:'',password:''});
     const {email,password} =userCrendentials;
@@ -26,26 +27,30 @@ const SignIn =({emailSignInStart,googleSignInStart})=>{
         const {value,name} = event.target;
         setCrendentials({...userCrendentials,[name]:value});
     }
-    
+    const handleClick = event =>{
+        HideSignIn();
+    }
         return(
-            <div className="sign-in">
-                <h2>I already have an account</h2>
-                <span>Sign in with your email and password</span>
-                <div className="auth-button">
-                <CustomButton type="button" onClick={googleSignInStart} isGoogleSignIn>Sign In with Google</CustomButton>
-                </div>
-                
-                <form onSubmit={handleSubmit}>
-                    
-                    
-                    <FormInput name="email" type="email" value={email} onChange={handleChange} label='email' required/>
-                
-                    <FormInput name="password" type="password" value={password} onChange={handleChange} label='passowrd' required/>
-                    <div className="buttons">
-                        <CustomButton type="submit">Sign In</CustomButton>
-                       
+            <div id="sign-in" className="sign-in" >
+                <div className="inner">
+                    <h2>로그인</h2>
+                    <div className="auth-button">
+                        <CustomButton type="button" onClick={googleSignInStart} isGoogleSignIn> Google 계정으로 로그인</CustomButton>
+                        <CustomButton type="button" onClick={googleSignInStart} isfacebookSignIn> facebook 계정으로 로그인</CustomButton>
                     </div>
-                </form>
+                    <form onSubmit={handleSubmit}>
+                        
+                        
+                        <FormInput name="email" type="email" value={email} onChange={handleChange} label='이메일' required/>
+                    
+                        <FormInput name="password" type="password" value={password} onChange={handleChange} label='비밀번호' required/>
+                        <div className="buttons">
+                            <CustomButton type="submit">로그인</CustomButton>
+                        
+                        </div>
+                    </form>
+                    <button className="btn-close" onClick={handleClick}>닫기</button>
+                </div>
             </div>
         )
     }
