@@ -11,12 +11,12 @@ import './header.styles.scss';
 const Header = ({currentUser,signOutStart}) =>(
     <div className='header'>
         <Link className='logo-container' to="/"> 
-            WORDBOOK
+            HOME
         </Link>
         <div className='options'>
             <Link className='option' to='/word'>WORD</Link>
             {currentUser?
-            <Link className='option' as='div' onClick={signOutStart}>SIGN OUT</Link>
+            <Link className='option' onClick={signOutStart}>SIGN OUT</Link>
             :
             <Link className='option' to='/signin'>SIGN IN</Link>
             }
