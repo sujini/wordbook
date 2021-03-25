@@ -6,9 +6,8 @@ import logo from './logo.svg';
 import Header from './components/header/header.component';
 import HomePageContainer from './pages/homepage/homepage.container';
 import WordPageContainer from './pages/word/word.container';
-import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import SignUp from './components/sign-up/sign-up.component';
-
+import SignIn from './components/sign-in/sign-in.component';
 
 
 import {createStructuredSelector} from 'reselect';
@@ -33,7 +32,7 @@ const App = function({checkUserSession,currentUser}) {
         <Route exact path='/wordbook' component={HomePageContainer}/>
         <Route path='/word' component={WordPageContainer}/>
         
-        <Route exact path='/signin' render={() => currentUser?(<Redirect to='/'/>):(<SignInAndSignUp/>)}/>
+        <Route exact path='/signin' render={() => currentUser?(<Redirect to='/'/>):(<SignIn/>)}/>
         <Route exact path='/signup' render={() => currentUser?(<Redirect to='/'/>):(<SignUp/>)}/>
         
       </Switch>

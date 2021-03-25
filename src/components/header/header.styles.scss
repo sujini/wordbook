@@ -3,8 +3,13 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
-  
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: url(../../assets/images/bg_pattern.jpg) repeat;
+    z-index: 999;
     .logo-container {
       height: 100%;
       width: 70px;

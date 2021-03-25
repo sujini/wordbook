@@ -1,0 +1,26 @@
+nav{
+    .navBar{
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+.homepage{
+    .container{
+        background: url('../../assets/images/bg_main.jpg') no-repeat center top;
+        background-size: cover;
+        text-align: center;
+        h2{
+            font-size: 40px;
+            padding: 100px 0 0;
+
+        }
+        p{
+            font-size: 20px;
+            padding: 20px 0;
+        }
+        button{
+            width: 300px;
+            margin: 10px auto;
+        }
+    }
+}

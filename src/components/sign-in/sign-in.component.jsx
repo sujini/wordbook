@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import {signInwithGoogle, auth} from '../../firebase/firebase.utils';
-import {googleSignInStart,emailSignInStart} from  '../../redux/user/user.actions';
+import { Icon, InlineIcon } from '@iconify/react';
+import closeIcon from '@iconify/icons-mdi/close';
+import {googleSignInStart,facebookSignInStart,emailSignInStart} from  '../../redux/user/user.actions';
 import {HideSignIn} from '../../uifunctions/popup.functions'
-const SignIn =({emailSignInStart,googleSignInStart})=>{
+const SignIn =({emailSignInStart,googleSignInStart,facebookSignInStart})=>{
     const [userCrendentials,setCrendentials] = useState({email:'',password:''});
     const {email,password} =userCrendentials;
     const handleSubmit = async event =>{
@@ -36,7 +37,7 @@ const SignIn =({emailSignInStart,googleSignInStart})=>{
                     <h2>로그인</h2>
                     <div className="auth-button">
                         <CustomButton type="button" onClick={googleSignInStart} isGoogleSignIn> Google 계정으로 로그인</CustomButton>
-                        <CustomButton type="button" onClick={googleSignInStart} isfacebookSignIn> facebook 계정으로 로그인</CustomButton>
+                        <CustomButton type="button" onClick={facebookSignInStart} isfacebookSignIn> facebook 계정으로 로그인</CustomButton>
                     </div>
                     <form onSubmit={handleSubmit}>
                         
@@ -49,7 +50,7 @@ const SignIn =({emailSignInStart,googleSignInStart})=>{
                         
                         </div>
                     </form>
-                    <button className="btn-close" onClick={handleClick}>닫기</button>
+                    <button className="btn-close" onClick={handleClick}><Icon icon={closeIcon} width="40" >닫기</Icon></button>
                 </div>
             </div>
         )
@@ -58,6 +59,7 @@ const SignIn =({emailSignInStart,googleSignInStart})=>{
 
 const mapDispatchToProps = dispatch=>({
     googleSignInStart: ()=>dispatch(googleSignInStart()),
+    facebookSignInStart: ()=>dispatch(facebookSignInStart()),
     emailSignInStart:(email,password)=>dispatch(emailSignInStart({email,password}))
 })
 export default connect(null,mapDispatchToProps)(SignIn);

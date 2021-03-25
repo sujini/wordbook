@@ -44,11 +44,29 @@ const facebookSignInStyles = css`
       border: none;
     }
 `;
+
+const emailSignInStyles = css`
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    margin-top:10px;
+
+    span {
+        height:35px;
+    }
+    &:hover{
+        span {
+            border-bottom:1px solid #333;
+        }
+    }
+`;
 const getButtonStyles = props =>{
     if(props.isGoogleSignIn){
         return googleSignInStyles;
     }else if(props.isfacebookSignIn){
         return facebookSignInStyles;
+    }else if(props.isMember){
+        return emailSignInStyles;
     }
     return props.inverted?invertedButtonStyles:buttonStyles;
 }

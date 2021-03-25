@@ -12,7 +12,10 @@ import './header.styles.scss';
 
 const Header = ({currentUser,signOutStart}) =>{
     const handleClick = event =>{
-        ShowSignUp();
+        if(!currentUser){
+            ShowSignUp();
+        }
+        
     }
     return(
         <div className='header'>

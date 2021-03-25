@@ -2,11 +2,14 @@ import React,{useState} from 'react';
 import {connect} from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import {googleSignInStart,signUpStart} from '../../redux/user/user.actions';
+import { Icon, InlineIcon } from '@iconify/react';
+import closeIcon from '@iconify/icons-mdi/close';
+
+import {googleSignInStart,facebookSignInStart,signUpStart} from '../../redux/user/user.actions';
 import {HideSignUp,ShowSignIn} from '../../uifunctions/popup.functions'
 import './sign-up.styles.scss';
 
-const SignUp = ({googleSignInStart,signUpStart})=>{
+const SignUp = ({googleSignInStart,facebookSignInStart,signUpStart})=>{
 
     const [userCrendentials,setCrendentials] = useState({displayName:'',
         email:'',
@@ -59,7 +62,7 @@ const SignUp = ({googleSignInStart,signUpStart})=>{
                
                 <div className="auth-button">
                     <CustomButton type="button" onClick={googleSignInStart} isGoogleSignIn> Google 계정으로 가입</CustomButton>
-                    <CustomButton type="button" onClick={googleSignInStart} isfacebookSignIn> facebook 계정으로 가입</CustomButton>
+                    <CustomButton type="button" onClick={facebookSignInStart} isfacebookSignIn> facebook 계정으로 가입</CustomButton>
                 </div>
                
                 <form className='sign-up-form' onSubmit={handleSubmit}>
@@ -71,9 +74,9 @@ const SignUp = ({googleSignInStart,signUpStart})=>{
                     <FormInput name="confirmPassword" type="password" value={confirmPassword} onChange={handleChange} label='비밀번호 확인' required/>
                     
                     <CustomButton type="submit">이메일로 회원 가입</CustomButton>
-                    <CustomButton type="button" onClick={handleLoginClick}>회원 이신가요? 로그인 </CustomButton>
+                    <CustomButton type="button" onClick={handleLoginClick} isMember>회원 이신가요? <span>로그인</span> </CustomButton>
                 </form>
-                <button className="btn-close" onClick={handleClick}>닫기</button>
+                <button className="btn-close" onClick={handleClick}><Icon icon={closeIcon} width="40" >닫기</Icon></button>
             </div>
            
         </div>
@@ -83,6 +86,7 @@ const SignUp = ({googleSignInStart,signUpStart})=>{
 
 const mapDispatchToProps = dispatch =>({
     googleSignInStart: ()=>dispatch(googleSignInStart()),
+    facebookSignInStart: ()=>dispatch(facebookSignInStart()),
     signUpStart : userCredentials=>dispatch(signUpStart(userCredentials))
 });
 export default connect(null,mapDispatchToProps)(SignUp);

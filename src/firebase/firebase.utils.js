@@ -144,4 +144,8 @@ const config= {
   googleProvider.setCustomParameters({prompt:'select_account'});
   export const signInwithGoogle = () =>auth.signInWithPopup(googleProvider);
 
+  export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+  facebookProvider.setCustomParameters({prompt:'select_account'});
+  export const signInwithFacebook = () =>auth.signInWithPopup(facebookProvider);
+
   export default firebase;
