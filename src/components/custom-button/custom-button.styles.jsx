@@ -60,6 +60,15 @@ const emailSignInStyles = css`
         }
     }
 `;
+const studyStyles = css`
+    width:auto;
+    background-color: #357ae8;
+    color: white;
+
+    &:hover{
+        background-color: #4285f4;
+    }
+`;
 const getButtonStyles = props =>{
     if(props.isGoogleSignIn){
         return googleSignInStyles;
@@ -67,6 +76,8 @@ const getButtonStyles = props =>{
         return facebookSignInStyles;
     }else if(props.isMember){
         return emailSignInStyles;
+    }else if(props.isbtnStudy){
+        return studyStyles;
     }
     return props.inverted?invertedButtonStyles:buttonStyles;
 }

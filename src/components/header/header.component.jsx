@@ -22,21 +22,26 @@ const Header = ({currentUser,signOutStart}) =>{
             <Link className='logo-container' to="/"> 
                 HOME
             </Link>
-            <div className='options'>
-                <Link className='option' onClick={handleClick}>WORD</Link>
-                {currentUser?
-                <Link className='option' onClick={signOutStart}>SIGN OUT</Link>
-                :
-                <Link className='option' onClick={handleClick}>SIGN IN</Link>
-                }
-            </div> 
-            {currentUser?
-            null:
-            <div className='popup-area'>
-                <SignUp/><SignIn/>
-            </div>
            
+            {currentUser?
+            <div className='options'>
+            
+                <Link className='option' to="/word">WORD</Link>
+                <Link className='option' onClick={signOutStart}>SIGN OUT</Link>
+            </div>
+            :
+            <div className='options'>
+            
+                <Link className='option' onClick={handleClick}>SIGN IN</Link>
+                <div className='popup-area'>
+                    <SignUp/><SignIn/>
+                </div>
+            </div>
+
             }
+           
+           
+            
         </div>
     )
 };

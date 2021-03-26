@@ -20,7 +20,7 @@ const WordList = ({collections,fetchWordsStartFromUser})=>{
             <ul className='card-list'>
                 {
                 collections && collections.map((collection,index)=>(
-                    <WordItem key={collection.id} id={collection.id} index={setNum(index+1)} item={collection}/>
+                    <li className='card'><WordItem key={collection.id} id={collection.id} index={setNum(index+1)} item={collection} isIcon/></li>
                     
                 
                 ))
