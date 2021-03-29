@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/wordbook/static/css/main.43ce2274.chunk.css",
+    "main.css": "/wordbook/static/css/main.b17e29ab.chunk.css",
     "main.js": "/wordbook/static/js/main.5e6afc29.chunk.js",
     "main.js.map": "/wordbook/static/js/main.5e6afc29.chunk.js.map",
     "runtime-main.js": "/wordbook/static/js/runtime-main.b00895fe.js",
@@ -8,9 +8,9 @@
     "static/js/2.e75f474e.chunk.js": "/wordbook/static/js/2.e75f474e.chunk.js",
     "static/js/2.e75f474e.chunk.js.map": "/wordbook/static/js/2.e75f474e.chunk.js.map",
     "index.html": "/wordbook/index.html",
-    "precache-manifest.47a5ba33e9f7588ecabdba58bca59a6e.js": "/wordbook/precache-manifest.47a5ba33e9f7588ecabdba58bca59a6e.js",
+    "precache-manifest.0c3dc087cf541cd9069be815f05b38a7.js": "/wordbook/precache-manifest.0c3dc087cf541cd9069be815f05b38a7.js",
     "service-worker.js": "/wordbook/service-worker.js",
-    "static/css/main.43ce2274.chunk.css.map": "/wordbook/static/css/main.43ce2274.chunk.css.map",
+    "static/css/main.b17e29ab.chunk.css.map": "/wordbook/static/css/main.b17e29ab.chunk.css.map",
     "static/js/2.e75f474e.chunk.js.LICENSE.txt": "/wordbook/static/js/2.e75f474e.chunk.js.LICENSE.txt",
     "static/media/homepage.styles.scss": "/wordbook/static/media/bg_main.5d0f2289.jpg",
     "static/media/logo.svg": "/wordbook/static/media/logo.ee7cd8ed.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.b00895fe.js",
     "static/js/2.e75f474e.chunk.js",
-    "static/css/main.43ce2274.chunk.css",
+    "static/css/main.b17e29ab.chunk.css",
     "static/js/main.5e6afc29.chunk.js"
   ]
 }
