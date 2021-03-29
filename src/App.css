@@ -29,4 +29,4 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 button{-webkit-appearance: none;background: none;border: 0;padding: 0;margin: 0;}
 button:hover{cursor: pointer;}
 .App{width: 100%; background: url(../src/assets/images/bg_pattern.jpg) repeat;}
-.container{min-height: 100vh;padding:20px;margin-top:70px;box-sizing: border-box;}
+.container{min-height: 100vh;padding:90px 20px 20px;box-sizing: border-box;}
