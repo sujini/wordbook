@@ -1,5 +1,5 @@
 react로 개발한 
-개인 단어장을 만들고 지울수있는 단어장 프로젝트
+개인 단어장을 생성,삭제,학습할 수 있는 단어장 프로젝트
 
 ## 사용라이브러리
 react
@@ -25,7 +25,7 @@ src/
     firebase.utils.js
   pages/
     homepage/
-    sign-in-and-sign-up/
+    quiz/
     word/
   redux/
     user/
