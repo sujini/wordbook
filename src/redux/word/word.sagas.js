@@ -1,6 +1,6 @@
 import {takeLatest,put,all,call} from 'redux-saga/effects';
 import {firestore,createWordDocument,deleteWordDocument,getCurrentUser,convertWordsnapshotToMap} from '../../firebase/firebase.utils';
-import {createWordSuccess,createWordFailure,deleteWordSuccess,deleteWordFailure,fetchWordsSuccess,fetchWordsFailure} from './word.actions';
+import {createWordSuccess,createWordFailure,deleteWordSuccess,deleteWordFailure,fetchWordsSuccess,fetchWordsFailure,updateLimit} from './word.actions';
 import wordActionTypes from './word.types';
 
 export function* ceateWord({payload:{content,meaning}}){
@@ -31,16 +31,18 @@ export function* deleteWord({payload:id}){
 }
 
 
-export function* fetchWordsAsyncFromUser(){
+export function* fetchWordsAsyncFromUser({payload:limit}){
     try{
         
         const userAuth = yield getCurrentUser();
         if(!userAuth)return;
-        console.log(userAuth.uid)
-       
-        const wordRef = firestore.collection('words');
-        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).get();
+        
+        const wordRef = firestore.collection('words').where('uid', '==', userAuth.uid).orderBy('createdAt','desc').limit(limit||6);
+        const snapshot = yield wordRef.get();
         const wordsMap = yield call(convertWordsnapshotToMap,snapshot);
+
+        if(wordsMap.length<limit)return;
+        yield put(updateLimit(limit));
         yield put(fetchWordsSuccess(wordsMap));
     }catch(error){
         yield put(fetchWordsFailure(error.message));

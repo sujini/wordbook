@@ -15,3 +15,7 @@ export const selectIsCollectionsLoaded = createSelector(
     [selectWord],
     word => !!word.collections
 )
+export const selectLimit = createSelector(
+    [selectWord],
+    word=>word.limit
+)

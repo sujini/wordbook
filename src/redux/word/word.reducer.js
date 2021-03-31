@@ -3,11 +3,17 @@ import wordActionTypes from './word.types';
 const INITIAL_STATE = {
     collections : null,
     isFetching:false,
-    error:null
+    error:null,
+    limit:6
 }
 
 const wordReducer = (state=INITIAL_STATE,action)=>{
     switch(action.type){
+        case wordActionTypes.UPDATE_WORD_LIMIT:
+            return{
+                ...state,
+                limit:action.payload
+            }
         case wordActionTypes.CREATE_WORD_START:
             return{
                 ...state,
@@ -50,7 +56,8 @@ const wordReducer = (state=INITIAL_STATE,action)=>{
             return{
                 ...state,
                 isFetching:true,
-                error:null
+                error:null,
+                limit:action.payload
             }
         case wordActionTypes.FETCH_WORD_SUCCESS:
             return{
