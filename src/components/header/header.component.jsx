@@ -7,6 +7,7 @@ import {selectCurrentUser} from '../../redux/user/user.selectors';
 import {signOutStart} from '../../redux/user/user.actions';
 import SignIn from '../../components/sign-in/sign-in.component';
 import SignUp from '../../components/sign-up/sign-up.component';
+import Search from '../../components/search/search.component';
 import {ShowSignUp} from '../../uifunctions/popup.functions';
 import './header.styles.scss';
 
@@ -25,13 +26,13 @@ const Header = ({currentUser,signOutStart}) =>{
            
             {currentUser?
             <div className='options'>
-            
+                <Search/>
                 <Link className='option' to="/word">WORD</Link>
                 <Link className='option' onClick={signOutStart}>SIGN OUT</Link>
             </div>
             :
             <div className='options'>
-            
+                <Search/>
                 <Link className='option' onClick={handleClick}>SIGN IN</Link>
                 <div className='popup-area'>
                     <SignUp/><SignIn/>

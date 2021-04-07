@@ -9,9 +9,10 @@ import {selectCurrentUser} from '../../redux/user/user.selectors';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import './word.styles.scss'
 
-const WordPage =({history,currentUser})=> {
+const WordPage =({history,match,currentUser})=> {
   useEffect(()=>{
     if (!currentUser) history.push('/');
+    console.log(history.location.search.split("=")[1] )
   },currentUser);
   const handleClick = ()=>{
     history.push('/quiz');

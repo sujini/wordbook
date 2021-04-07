@@ -1,0 +1,21 @@
+.search-list{
+    text-align: center;
+    font-size: 0;
+    padding:0;
+   
+    li{
+        border:1px solid #000;
+        box-sizing: border-box;
+        padding: 3px;
+        font-size: 19px;
+        h3{
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.6px;
+            box-sizing: border-box;
+            padding: 0 35px 0 0;
+        }
+    }
+    
+}
+

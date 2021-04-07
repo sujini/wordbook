@@ -19,3 +19,7 @@ export const selectLimit = createSelector(
     [selectWord],
     word=>word.limit
 )
+export const selectSearchCollections = createSelector(
+    [selectWord],
+    word=>word.searchCollections
+)

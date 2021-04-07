@@ -6,6 +6,7 @@ import logo from './logo.svg';
 import Header from './components/header/header.component';
 import HomePageContainer from './pages/homepage/homepage.container';
 import WordPageContainer from './pages/word/word.container';
+import SearchPageContainer from './pages/search/searchpage.container';
 import QuizPageContainer from './pages/quiz/quiz.container';
 import SignUp from './components/sign-up/sign-up.component';
 import SignIn from './components/sign-in/sign-in.component';
@@ -31,7 +32,8 @@ const App = function({checkUserSession,currentUser}) {
       <Switch>
         <Route exact path='/' component={HomePageContainer}/>
         <Route exact path='/wordbook' component={HomePageContainer}/>
-        <Route path='/word' component={WordPageContainer}/>
+        <Route exact path='/word' component={WordPageContainer}/>
+        <Route path='/word/:search' component={SearchPageContainer}/>
         <Route path='/quiz' component={QuizPageContainer}/>
         
         <Route exact path='/signin' render={() => currentUser?(<Redirect to='/'/>):(<SignIn/>)}/>

@@ -1,5 +1,5 @@
 import {takeLatest,put,all,call} from 'redux-saga/effects';
-import {auth,googleProvider,facebookProvider,createUserProfileDocument,getCurrentUser} from '../../firebase/firebase.utils';
+import {auth,googleProvider,facebookProvider,createUserProfileDocument,getCurrentUser} from '../../utils/firebase.utils';
 import {signInSuccess,signInFailure,signOutSuccess,signOutFailure,signUpSuccess,signUpFailure} from './user.actions';
 import userActionTypes from './user.types';
 

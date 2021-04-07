@@ -1,6 +1,7 @@
 import {takeLatest,put,all,call} from 'redux-saga/effects';
-import {firestore,createWordDocument,deleteWordDocument,getCurrentUser,convertWordsnapshotToMap} from '../../firebase/firebase.utils';
-import {createWordSuccess,createWordFailure,deleteWordSuccess,deleteWordFailure,fetchWordsSuccess,fetchWordsFailure,updateLimit} from './word.actions';
+import {firestore,createWordDocument,deleteWordDocument,getCurrentUser,convertWordsnapshotToMap} from '../../utils/firebase.utils';
+import {searchByParams} from '../../utils/algolia.utils';
+import {createWordSuccess,createWordFailure,deleteWordSuccess,deleteWordFailure,fetchWordsSuccess,fetchWordsFailure,searchWordsSuccess,searchWordsFailure,updateLimit} from './word.actions';
 import wordActionTypes from './word.types';
 
 export function* ceateWord({payload:{content,meaning}}){
@@ -9,7 +10,7 @@ export function* ceateWord({payload:{content,meaning}}){
         const userAuth = yield getCurrentUser();
         if(!userAuth)return;
         const wordRef = yield call(createWordDocument,userAuth,{content,meaning});
-        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).get();
+        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).orderBy('createdAt','desc').get();
         const wordsMap = yield call(convertWordsnapshotToMap,snapshot);
         yield put(createWordSuccess(wordsMap));
     }catch(error){
@@ -22,7 +23,7 @@ export function* deleteWord({payload:id}){
         const userAuth = yield getCurrentUser();
         if(!userAuth)return;
         const wordRef = yield call(deleteWordDocument,userAuth,id);
-        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).get();
+        const snapshot = yield wordRef.where('uid', '==', userAuth.uid).orderBy('createdAt','desc').get();
         const wordsMap = yield call(convertWordsnapshotToMap,snapshot);
         yield put(deleteWordSuccess(wordsMap));
     }catch(error){
@@ -49,21 +50,22 @@ export function* fetchWordsAsyncFromUser({payload:limit}){
     }
 }
 
-export function* fetchWordsAsync(){
+
+export function* searchWordsAsync({payload:query}){
     try{
-        const wordRef = firestore.collection('words');
-        const snapshot = yield wordRef.get();
-        const wordsMap = yield call(convertWordsnapshotToMap,snapshot);
-        yield put(fetchWordsSuccess(wordsMap));
+        console.log(query)
+        const wordsMap = yield call(searchByParams,query);
+        yield put(searchWordsSuccess(wordsMap));
     }catch(error){
-        yield put(fetchWordsFailure(error.message));
+        yield put(searchWordsFailure(error.message));
     }
 }
 export function* fetchWordsStartFromUser(){
     yield takeLatest(wordActionTypes.FETCH_WORD_START_FROM_USER,fetchWordsAsyncFromUser)
 }
-export function* fetchWordsStart(){
-    yield takeLatest(wordActionTypes.FETCH_WORD_START,fetchWordsAsync)
+
+export function* searchWordsStart(){
+    yield takeLatest(wordActionTypes.SEARCH_WORD_START,searchWordsAsync)
 }
 export function* onCreateWordStart(){
     yield takeLatest(wordActionTypes.CREATE_WORD_START,ceateWord);
@@ -74,5 +76,5 @@ export function* onDeleteWordStart(){
 }
 
 export function* wordSagas(){
-    yield all([call(onCreateWordStart),call(onDeleteWordStart),call(fetchWordsStart),call(fetchWordsStartFromUser)]);
+    yield all([call(onCreateWordStart),call(onDeleteWordStart),call(fetchWordsStartFromUser),call(searchWordsStart)]);
 }

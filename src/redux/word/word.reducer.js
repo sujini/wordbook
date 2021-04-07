@@ -2,6 +2,7 @@ import wordActionTypes from './word.types';
 
 const INITIAL_STATE = {
     collections : null,
+    searchCollections:null,
     isFetching:false,
     error:null,
     limit:6
@@ -46,6 +47,7 @@ const wordReducer = (state=INITIAL_STATE,action)=>{
                 isFetching:false,
                 error:action.payload
             }
+     
         case wordActionTypes.FETCH_WORD_START:
             return{
                 ...state,
@@ -66,7 +68,21 @@ const wordReducer = (state=INITIAL_STATE,action)=>{
                 collections:action.payload,
                 error:null
             }
+        
         case wordActionTypes.FETCH_WORD_FAILURE:
+            return{
+                ...state,
+                isFetching:false,
+                error:action.payload
+            }
+        case wordActionTypes.SEARCH_WORD_SUCCESS:
+            return{
+                ...state,
+                isFetching:false,
+                searchCollections:action.payload,
+                error:null
+            }
+        case wordActionTypes.SEARCH_WORD_FAILURE:
             return{
                 ...state,
                 isFetching:false,

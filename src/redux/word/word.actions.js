@@ -45,9 +45,7 @@ export const deleteWordFailure = error => ({
   payload:error
 });
 
-export const fetchWordStart = () => ({
-  type: wordActionTypes.FETCH_WORD_START
-});
+
 export const fetchWordsStartFromUser = (limit) => ({
   type: wordActionTypes.FETCH_WORD_START_FROM_USER,
   payload:limit
@@ -58,6 +56,20 @@ export const fetchWordsSuccess = collections =>({
 });
 export const fetchWordsFailure = error => ({
   type: wordActionTypes.FETCH_WORD_FAILURE,
+  payload:error
+});
+
+
+export const searchWordStart = (query) => ({
+  type: wordActionTypes.SEARCH_WORD_START,
+  payload:query
+});
+export const searchWordsSuccess = collections =>({
+  type: wordActionTypes.SEARCH_WORD_SUCCESS,
+  payload:collections
+});
+export const searchWordsFailure = error => ({
+  type: wordActionTypes.SEARCH_WORD_FAILURE,
   payload:error
 });
 
