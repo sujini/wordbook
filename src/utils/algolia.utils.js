@@ -1,9 +1,6 @@
-import * as functions from 'firebase-functions';
 import * as algoliasearch from 'algoliasearch';
 
-const env = functions.config();
-console.log(env)
-const client = algoliasearch('XOIA43O7CN', 'c60c5db698c1672afecda431544e9d24');
+const client = algoliasearch(process.env.REACT_APP_ALGOLIA_ID, process.env.REACT_APP_ALGOLIA_ADMIN_KEY);
 const wordsIndex = client.initIndex("words");
 
 export const searchByParams = async (query) => {

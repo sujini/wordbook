@@ -10,8 +10,9 @@ const algoliasearch = require("algoliasearch");
 
 
 const env = functions.config();
-
-const client = algoliasearch(env.algolia.appid, env.algolia.apikey);
+const ALGOLIA_ID = functions.config().algolia.app_id;
+const ALGOLIA_ADMIN_KEY = functions.config().algolia.api_key;
+const client = algoliasearch(ALGOLIA_ID, ALGOLIA_ADMIN_KEY );
 const wordsIndex = client.initIndex("words"); // <-- Index name
 
 exports.algoliaWordsSync = functions

@@ -23,3 +23,7 @@ export const selectSearchCollections = createSelector(
     [selectWord],
     word=>word.searchCollections
 )
+export const selectIsSearchCollectionsLoaded = createSelector(
+    [selectWord],
+    word => !!word.searchCollections
+)

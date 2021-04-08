@@ -14,14 +14,16 @@ const SearchPage = ({match,searchWordStart,searchCollections})=>{
         <div className="container">
             <div className="searchpage"> 
             
-            <ul className='search-list'>
+                <ul className='search-list'>
                     {
-                    searchCollections && searchCollections.map((searchCollection,index)=>(
+                    searchCollections && searchCollections.length>0?
+                        searchCollections.map((searchCollection)=>(
                         <li className='card' key={searchCollection.objectID}><h3>{searchCollection.content}</h3>{searchCollection.meaning}</li>
-                        
+                        ))
+                        :
+                        <li className="nodata">nodata</li>
                     
-                    ))
-                }
+                    }                    
                 </ul>
                 
             </div>

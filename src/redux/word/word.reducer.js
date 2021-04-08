@@ -48,7 +48,7 @@ const wordReducer = (state=INITIAL_STATE,action)=>{
                 error:action.payload
             }
      
-        case wordActionTypes.FETCH_WORD_START:
+        case wordActionTypes.SEARCH_WORD_START:
             return{
                 ...state,
                 isFetching:true,

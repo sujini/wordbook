@@ -22,7 +22,6 @@ const App = function({checkUserSession,currentUser}) {
 
   useEffect( ()=>{
     checkUserSession();
-     
 
   },[checkUserSession]);
  
