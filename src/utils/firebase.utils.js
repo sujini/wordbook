@@ -5,13 +5,13 @@ import 'firebase/auth';
 import { cps } from 'redux-saga/effects';
 
 const config= {
-    apiKey: "AIzaSyCiOvCSbY7Le_sz-AlM_zxk_A4tWCoW5g8",
+    apiKey: process.env.REACT_APP_FIREBASE_API_kEY,
     authDomain: "wordbook-c7d53.firebaseapp.com",
     databaseURL: "https://wordbook-c7d53.firebaseio.com",
     projectId: "wordbook-c7d53",
     storageBucket: "wordbook-c7d53.appspot.com",
     messagingSenderId: "983028184348",
-    appId: "1:983028184348:web:5c8fa8062aa05f8c14b6d9",
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: "G-D22170SBM3"
   };
 

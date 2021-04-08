@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {searchWordStart} from '../../redux/word/word.actions';
 import './search.styles.scss';
 
@@ -8,7 +9,7 @@ import './search.styles.scss';
 
 
 
-const Search = ({history}) =>{
+const Search = ({history,searchWordStart}) =>{
     
     const [userSearch,setSearch] = useState({search:''});
     const {search} =userSearch;
@@ -21,8 +22,8 @@ const Search = ({history}) =>{
     }
     const handleSubmit = event =>{
         event.preventDefault();
-        history.push('/word/'+ search)
-
+        searchWordStart(search);
+        history.push('/word/'+ search);
     }
     return(
         <div className='search'>
@@ -33,6 +34,12 @@ const Search = ({history}) =>{
     )
 };
 
+const mapDispatchToProps = dispatch =>({
+    searchWordStart:(query)=>dispatch(searchWordStart(query))
+});
 
 
-export default withRouter(Search)
+export default compose(
+    withRouter,
+    connect(null, mapDispatchToProps)
+  )(Search);
