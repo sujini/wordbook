@@ -3,9 +3,9 @@ import {auth,googleProvider,facebookProvider,createUserProfileDocument,getCurren
 import {signInSuccess,signInFailure,signOutSuccess,signOutFailure,signUpSuccess,signUpFailure} from './user.actions';
 import userActionTypes from './user.types';
 
-export function* getSnapshotFromUserAuth(userAuth){
+export function* getSnapshotFromUserAuth(userAuth,additionalData){
     try{
-        const userRef = yield call(createUserProfileDocument,userAuth);
+        const userRef = yield call(createUserProfileDocument,userAuth,additionalData);
         const userSnapshot = yield userRef.get();
         yield put(signInSuccess({ id:userSnapshot.id,...userSnapshot.data()}));
     }catch(error){
@@ -21,7 +21,6 @@ export function* signInWithGoogle(){
     }
 }
 export function* onGoogleSignInStart(){
-    console.log('onGoogleSignInStart')
     yield takeLatest(userActionTypes.GOOGLE_SIGN_IN_START,signInWithGoogle)
 }
 export function* signInWithFacbook(){
