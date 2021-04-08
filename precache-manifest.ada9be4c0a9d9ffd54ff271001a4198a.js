@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "997b31e52636669245154488252de65e",
+    "revision": "e72977cfb9908e813bc2b91feaacec9c",
     "url": "/wordbook/index.html"
   },
   {
-    "revision": "fc0697b9093f73a84977",
-    "url": "/wordbook/static/css/main.b17e29ab.chunk.css"
+    "revision": "e99bd634e2a408fad515",
+    "url": "/wordbook/static/css/main.55bb2c1e.chunk.css"
   },
   {
-    "revision": "6e88433a30ace8b7ffde",
-    "url": "/wordbook/static/js/2.e75f474e.chunk.js"
+    "revision": "d222559432b6175c1abd",
+    "url": "/wordbook/static/js/2.56d6fe02.chunk.js"
   },
   {
-    "revision": "7bfaa32b315fe466d84ab2ae49052d17",
-    "url": "/wordbook/static/js/2.e75f474e.chunk.js.LICENSE.txt"
+    "revision": "6b4fbec0c41c61e2495a1c86716e68c5",
+    "url": "/wordbook/static/js/2.56d6fe02.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fc0697b9093f73a84977",
-    "url": "/wordbook/static/js/main.7065c1ea.chunk.js"
+    "revision": "e99bd634e2a408fad515",
+    "url": "/wordbook/static/js/main.76a96b88.chunk.js"
   },
   {
     "revision": "885acb5b0dd41f348cf4",
