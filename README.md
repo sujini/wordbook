@@ -13,19 +13,24 @@ styled-components
 
 ```
 src/
+  assets/
+    images/
   components/
     create-word/
     header/
+    search/
     sign-in/
     sign-up
     with-spinner/
     word-item/
     word-list/
-  firebase/
+  utils/
+    algolia.utils.js
     firebase.utils.js
   pages/
     homepage/
     quiz/
+    search/
     word/
   redux/
     user/

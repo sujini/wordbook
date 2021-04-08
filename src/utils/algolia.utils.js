@@ -6,11 +6,16 @@ const wordsIndex = client.initIndex("words");
 export const searchByParams = async (query) => {
     return new Promise(async (resolve, reject) => {
         wordsIndex.search(query, {
-            attributesToRetrieve: ['content', 'meaning'],
+            attributesToRetrieve: ['meaning','content'],
             hitsPerPage: 5,
         })
-        .then(({ hits ,e}) => {
-            resolve(hits);
+        .then(({ hits},e) => {
+            if(e){
+                reject(e);
+            }else{
+                resolve(hits);
+            }
+            
           });
     
       });
