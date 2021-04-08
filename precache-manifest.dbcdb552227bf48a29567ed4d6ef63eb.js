@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e72977cfb9908e813bc2b91feaacec9c",
+    "revision": "45897b1711b710bfccb07a6c4fd1ec9f",
     "url": "/wordbook/index.html"
   },
   {
-    "revision": "e99bd634e2a408fad515",
+    "revision": "0242d961b722a307331b",
     "url": "/wordbook/static/css/main.55bb2c1e.chunk.css"
   },
   {
-    "revision": "d222559432b6175c1abd",
-    "url": "/wordbook/static/js/2.56d6fe02.chunk.js"
+    "revision": "81433808b3d8a50e6f79",
+    "url": "/wordbook/static/js/2.f6ab6cb0.chunk.js"
   },
   {
     "revision": "6b4fbec0c41c61e2495a1c86716e68c5",
-    "url": "/wordbook/static/js/2.56d6fe02.chunk.js.LICENSE.txt"
+    "url": "/wordbook/static/js/2.f6ab6cb0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e99bd634e2a408fad515",
-    "url": "/wordbook/static/js/main.76a96b88.chunk.js"
+    "revision": "0242d961b722a307331b",
+    "url": "/wordbook/static/js/main.9fc747a4.chunk.js"
   },
   {
     "revision": "885acb5b0dd41f348cf4",
